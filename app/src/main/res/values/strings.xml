@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">About</string>
+    <string name="name">ชื่อ นาย พิชญ  กรอบเพ็ชร</string>
+    <string name="sid">รหัสนิสิต 59160965</string>
+    <string name="nextB">Next</string>
+    <string name="nameinput">Name</string>
+    <string name="nameinputhint">Name</string>
+    <string name="qrcodescan">QRCodeScan</string>
+    <string name="history">History</string>
 </resources>

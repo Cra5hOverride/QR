@@ -6,33 +6,31 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.login.LoginFragment">
+        tools:context=".screens.menu.menuFragment">
 
-        <EditText
-            android:id="@+id/nameInput"
+        <Button
+            android:id="@+id/scanbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="N"
-            android:inputType="textPersonName"
-            android:text="@string/nameinput"
+            android:layout_marginTop="200dp"
+            android:text="@string/qrcodescan"
+            app:layout_constraintBottom_toTopOf="@+id/historybutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/OKbutton"
+            android:id="@+id/historybutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/nextB"
+            android:layout_marginBottom="200dp"
+            android:text="@string/history"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+            app:layout_constraintTop_toBottomOf="@+id/scanbutton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-

@@ -6,12 +6,38 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="buu.informatics.s59160965.qrcodescanner.login.LoginFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="buu.informatics.s59160965.qrcodescanner.about.AboutFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.about.AboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.menu.menuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_qrcodescanFragment"
+            app:destination="@id/qrcodescanFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrcodescanFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.qrcodescan.qrcodescanFragment"
+        android:label="fragment_qrcodescan"
+        tools:layout="@layout/fragment_qrcodescan" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.history.historyFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>
