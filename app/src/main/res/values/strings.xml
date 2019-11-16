@@ -11,4 +11,5 @@
     <string name="nameinputhint">Name</string>
     <string name="qrcodescan">QRCodeScan</string>
     <string name="history">History</string>
+    <string name="scan_btn">Scan Now</string>
 </resources>

@@ -21,8 +21,7 @@ class menuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentMenuBinding>(
-            inflater,
+        val binding = DataBindingUtil.inflate<FragmentMenuBinding>(inflater,
             R.layout.fragment_menu, container, false
         )
         binding.apply {
