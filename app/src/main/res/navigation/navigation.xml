@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_qrcodescan" />
     <fragment
         android:id="@+id/historyFragment"
-        android:name="buu.informatics.s59160965.qrcodescanner.screens.history.historyFragment"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.history.HistoryFragment"
         android:label="History"
         tools:layout="@layout/fragment_history" />
 </navigation>

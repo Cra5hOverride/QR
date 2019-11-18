@@ -7,6 +7,7 @@ import android.content.ClipboardManager
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,9 +15,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160965.qrcodescanner.R
+import buu.informatics.s59160965.qrcodescanner.database.HistoryDatabase
 import buu.informatics.s59160965.qrcodescanner.databinding.FragmentQrcodescanBinding
 import com.google.zxing.integration.android.IntentIntegrator
 import java.util.regex.Pattern
@@ -33,9 +36,14 @@ class QrcodescanFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentQrcodescanBinding>(inflater, R.layout.fragment_qrcodescan,container,false)
+         binding = DataBindingUtil.inflate<FragmentQrcodescanBinding>(inflater, R.layout.fragment_qrcodescan,container,false)
+                val application = requireNotNull(this.activity).application
 
-                viewModel = ViewModelProviders.of(this).get(QrcodescanViewModel::class.java)
+                val dataSource = HistoryDatabase.getInstance(application).HistoryDatabaseDao
+
+                val viewModelFactory = QrcodescanViewModelFactory(dataSource, application)
+
+                viewModel = ViewModelProviders.of(this,viewModelFactory).get(QrcodescanViewModel::class.java)
                 binding.qrcodescanViewModel = viewModel
                 binding.lifecycleOwner = this
 
@@ -53,6 +61,7 @@ class QrcodescanFragment : Fragment() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.i("Fragment", "Test Result")
         if (resultCode == Activity.RESULT_OK) {
@@ -63,6 +72,7 @@ class QrcodescanFragment : Fragment() {
                 } else {
                     var content = result.contents
 //                    Toast.makeText(context, "Scanned: " + content, Toast.LENGTH_LONG).show()
+                    viewModel.insertHistory(content)
                     copy2clipboard(content)
                     Log.i("Link", "Scanned: " + content)
 
