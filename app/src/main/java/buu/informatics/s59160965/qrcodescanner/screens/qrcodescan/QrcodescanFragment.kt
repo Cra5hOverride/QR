@@ -15,27 +15,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160965.qrcodescanner.R
 import buu.informatics.s59160965.qrcodescanner.databinding.FragmentQrcodescanBinding
 import com.google.zxing.integration.android.IntentIntegrator
 import java.util.regex.Pattern
 
 
-
-
-
 /**
  * A simple [Fragment] subclass.
  */
-class qrcodescanFragment : Fragment() {
+class QrcodescanFragment : Fragment() {
 
     private lateinit var binding: FragmentQrcodescanBinding
-    override fun onCreateView(
+    private lateinit var viewModel: QrcodescanViewModel
+            override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentQrcodescanBinding>(inflater,
-            R.layout.fragment_qrcodescan,container,false)
+        val binding = DataBindingUtil.inflate<FragmentQrcodescanBinding>(inflater, R.layout.fragment_qrcodescan,container,false)
+
+                viewModel = ViewModelProviders.of(this).get(QrcodescanViewModel::class.java)
+                binding.qrcodescanViewModel = viewModel
+                binding.lifecycleOwner = this
+
             binding.scanbutton.setOnClickListener{
                 val scanner = IntentIntegrator(activity)
                 scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)

@@ -20,24 +20,27 @@
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/menuFragment"
-        android:name="buu.informatics.s59160965.qrcodescanner.screens.menu.menuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.menu.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_qrcodescanFragment"
             app:destination="@id/qrcodescanFragment" />
         <action
             android:id="@+id/action_menuFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <argument
+            android:name="inputName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/qrcodescanFragment"
-        android:name="buu.informatics.s59160965.qrcodescanner.screens.qrcodescan.qrcodescanFragment"
-        android:label="fragment_qrcodescan"
+        android:name="buu.informatics.s59160965.qrcodescanner.screens.qrcodescan.QrcodescanFragment"
+        android:label="QRcode Scan"
         tools:layout="@layout/fragment_qrcodescan" />
     <fragment
         android:id="@+id/historyFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.history.historyFragment"
-        android:label="fragment_history"
+        android:label="History"
         tools:layout="@layout/fragment_history" />
 </navigation>

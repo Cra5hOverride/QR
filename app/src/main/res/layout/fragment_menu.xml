@@ -3,21 +3,27 @@
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="menuViewModel"
+            type="buu.informatics.s59160965.qrcodescanner.screens.menu.MenuViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.menu.menuFragment">
+        tools:context=".screens.menu.MenuFragment">
 
         <Button
             android:id="@+id/scanbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
             android:text="@string/qrcodescan"
             app:layout_constraintBottom_toTopOf="@+id/historybutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/UserN" />
 
         <Button
             android:id="@+id/historybutton"
@@ -30,6 +36,17 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scanbutton" />
+
+        <TextView
+            android:id="@+id/UserN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{menuViewModel.name}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
