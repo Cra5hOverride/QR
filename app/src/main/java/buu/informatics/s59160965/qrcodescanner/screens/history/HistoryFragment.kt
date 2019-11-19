@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160965.qrcodescanner.R
 import buu.informatics.s59160965.qrcodescanner.database.HistoryDatabase
@@ -25,19 +26,33 @@ class HistoryFragment : Fragment() {
 
         binding = DataBindingUtil.inflate<FragmentHistoryBinding>(inflater, R.layout.fragment_history,container,false)
         val application = requireNotNull(this.activity).application
-
         val dataSource = HistoryDatabase.getInstance(application).HistoryDatabaseDao
-
         val viewModelFactory = HistoryViewModelFactory(dataSource, application)
 
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(HistoryViewModel::class.java)
         binding.historyViewModel = viewModel
         binding.lifecycleOwner = this
 
+        val adapter = HistoryAdapter()
+        binding.historyList.adapter = adapter
+
+        val historyViewModel = ViewModelProviders.of(this,
+            viewModelFactory)
+            .get(HistoryViewModel::class.java)
+
+        historyViewModel.historys.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
 
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false)
+        binding.historyViewModel = historyViewModel
+        binding.lifecycleOwner = this
+
+
+
+        return return binding.root
     }
 
 

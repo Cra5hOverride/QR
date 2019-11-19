@@ -73,6 +73,7 @@ class QrcodescanFragment : Fragment() {
                     var content = result.contents
 //                    Toast.makeText(context, "Scanned: " + content, Toast.LENGTH_LONG).show()
                     viewModel.insertHistory(content)
+                    viewModel.setdata(content)
                     copy2clipboard(content)
                     Log.i("Link", "Scanned: " + content)
 
@@ -92,13 +93,12 @@ class QrcodescanFragment : Fragment() {
             val openURL = Intent(android.content.Intent.ACTION_VIEW)
             openURL.data = Uri.parse(text as String?)
             startActivity(openURL)
-        }else{
+        }
             val clipboard = activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("copy text", text)
             clipboard.setPrimaryClip(clip)
 
             Toast.makeText(context, "Text Copied", Toast.LENGTH_SHORT).show()
-        }
 
 
     }

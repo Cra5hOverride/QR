@@ -19,5 +19,9 @@ interface HistoryDatabaseDao {
     @Query("SELECT * FROM history_table ORDER BY time DESC")
     fun getHistory(): LiveData<List<History>>
 
+    @Query("DELETE FROM history_table")
+    fun clear()
+
+
 
 }

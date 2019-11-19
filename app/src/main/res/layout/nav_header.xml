@@ -16,11 +16,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/horizontal_margin"
         android:layout_marginBottom="24dp"
+        android:contentDescription="@string/aboutimg"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@drawable/qr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,8 +16,8 @@ class QrcodescanViewModel ( val database: HistoryDatabaseDao, application: Appli
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _datadecode = MutableLiveData<Int>()
-    val datadecode: LiveData<Int>
+    private val _datadecode = MutableLiveData<String>()
+    val datadecode: LiveData<String>
         get() = _datadecode
 
 
@@ -36,5 +36,9 @@ class QrcodescanViewModel ( val database: HistoryDatabaseDao, application: Appli
         withContext(Dispatchers.IO) {
             database.insert(history)
         }
+    }
+
+    fun setdata(data : String){
+        _datadecode.value = data
     }
 }

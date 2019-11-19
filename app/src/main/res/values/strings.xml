@@ -11,4 +11,8 @@
     <string name="qrcodescan">QRCodeScan</string>
     <string name="history">History</string>
     <string name="scan_btn">Scan Now</string>
+    <string name="clear_history">CLEAR</string>
+    <string name="qrimg">qr</string>
+    <string name="aboutimg">imgabout</string>
+    <string name="profimg">profimg</string>
 </resources>
