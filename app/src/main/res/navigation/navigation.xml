@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.login.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" >
+        android:label="QRCodeScanner"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -16,12 +16,12 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.about.AboutFragment"
-        android:label="About"
+        android:label="QRCodeScanner"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/menuFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.menu.MenuFragment"
-        android:label="Menu"
+        android:label="QRCodeScanner"
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_qrcodescanFragment"
@@ -36,11 +36,11 @@
     <fragment
         android:id="@+id/qrcodescanFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.qrcodescan.QrcodescanFragment"
-        android:label="QRcode Scan"
+        android:label="QRCodeScanner"
         tools:layout="@layout/fragment_qrcodescan" />
     <fragment
         android:id="@+id/historyFragment"
         android:name="buu.informatics.s59160965.qrcodescanner.screens.history.HistoryFragment"
-        android:label="History"
+        android:label="QRCodeScanner"
         tools:layout="@layout/fragment_history" />
 </navigation>

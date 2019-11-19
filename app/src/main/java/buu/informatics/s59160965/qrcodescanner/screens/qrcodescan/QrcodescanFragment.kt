@@ -10,14 +10,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160965.qrcodescanner.R
 import buu.informatics.s59160965.qrcodescanner.database.HistoryDatabase
 import buu.informatics.s59160965.qrcodescanner.databinding.FragmentQrcodescanBinding
@@ -71,10 +71,9 @@ class QrcodescanFragment : Fragment() {
                     Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
                     var content = result.contents
-//                    Toast.makeText(context, "Scanned: " + content, Toast.LENGTH_LONG).show()
-                    viewModel.insertHistory(content)
                     viewModel.setdata(content)
                     copy2clipboard(content)
+                    setHasOptionsMenu(true)
                     Log.i("Link", "Scanned: " + content)
 
                 }
@@ -101,6 +100,36 @@ class QrcodescanFragment : Fragment() {
             Toast.makeText(context, "Text Copied", Toast.LENGTH_SHORT).show()
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.result_menu, menu)
+
+        if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+            menu?.findItem(R.id.share)?.setVisible(false)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item!!.itemId) {
+            R.id.share -> shareSuccess()
+        }
+
+        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
+
+//        return super.onOptionsItemSelected(item)
+    }
+
+    private fun getShareIntent() : Intent {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+            .putExtra(Intent.EXTRA_TEXT,""+viewModel.datadecode.value)
+        return shareIntent
+    }
+
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
     }
 
 }

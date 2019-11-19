@@ -19,7 +19,10 @@
             android:id="@+id/scanbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_thin"
             android:text="@string/qrcodescan"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/historybutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,23 +33,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="200dp"
+            android:fontFamily="@font/roboto_thin"
             android:text="@string/history"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scanbutton" />
+            app:layout_constraintTop_toBottomOf="@+id/scanbutton"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/UserN"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:textSize="30sp"
+            android:layout_height="32dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/roboto_thin"
+            android:text="@{menuViewModel.name}"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{menuViewModel.name}"/>
+            app:layout_constraintTop_toBottomOf="@+id/textHello" />
+
+        <TextView
+            android:id="@+id/textHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/roboto_thin"
+            android:text="@string/menu"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

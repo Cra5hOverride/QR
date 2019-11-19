@@ -16,4 +16,9 @@
     <string name="aboutimg">imgabout</string>
     <string name="profimg">profimg</string>
     <string name="share_item">share</string>
+    <string name="hello">Hello</string>
+    <string name="logo">Logo</string>
+    <string name="nameapp">QR Code Scanner</string>
+    <string name="menu">Menu</string>
+    <string name="scanner">Scanner</string>
 </resources>

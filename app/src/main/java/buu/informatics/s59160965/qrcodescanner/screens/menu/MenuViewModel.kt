@@ -22,7 +22,7 @@ class MenuViewModel: ViewModel() {
   }
 
     fun setName(name : String){
-        _name.value = name
+        _name.value = "Hello : "+name
     }
 
 }

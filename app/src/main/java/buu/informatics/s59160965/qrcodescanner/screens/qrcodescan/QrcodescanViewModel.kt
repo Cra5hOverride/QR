@@ -1,5 +1,6 @@
 package buu.informatics.s59160965.qrcodescanner.screens.qrcodescan
 
+import android.annotation.TargetApi
 import android.app.Application
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -38,7 +39,10 @@ class QrcodescanViewModel ( val database: HistoryDatabaseDao, application: Appli
         }
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun setdata(data : String){
         _datadecode.value = data
+        insertHistory(data)
     }
 }

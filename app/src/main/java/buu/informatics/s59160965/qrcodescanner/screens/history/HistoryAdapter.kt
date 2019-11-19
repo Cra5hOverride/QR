@@ -21,20 +21,13 @@ class HistoryAdapter : RecyclerView.Adapter<TextItemViewHolder>() {
     override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
         val item = data[position]
 
-//        holder.textView.text = "      "+item.datadecode+makeBlank(item)+item.time
-
-        var text = "<font color=#D4AC0D> ${item.datadecode}</font> "+ "<font color=#00000>--</font> "+
-                "<font color=#D4AC0D> ${item.time}</font> "
+        var text = "<font color=#00000>${position + 1} : </font> "+"<font color=#1951B2> ${item.datadecode}</font> "+ "<font color=#00000>--</font> "+
+                "<font color=#1951B2> ${item.time}</font> "
 
         holder.textView.setText(Html.fromHtml(text))
     }
 
-//    fun makeBlank( item : History) : String{
-//        var blank = "                "
-//
-//
-//        return blank
-//    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
